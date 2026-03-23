@@ -1,4 +1,4 @@
-1774256510a:1:{s:15:"site/footer.htm";a:5:{s:8:"fileName";s:15:"site/footer.htm";s:7:"content";s:2404:"<footer class="footer">
+1774270328a:1:{s:15:"site/footer.htm";a:5:{s:8:"fileName";s:15:"site/footer.htm";s:7:"content";s:2404:"<footer class="footer">
     <div class="footer__divider-vector">
         <img src="{{ 'assets/images/VVVector.svg'|theme }}" alt="divider" class="vector-left">
         <img src="{{ 'assets/images/VVVector.svg'|theme }}" alt="divider" class="vector-right">

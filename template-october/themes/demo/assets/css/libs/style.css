@@ -1,11 +1,15 @@
 
 /* Global Reset & Variables */
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 
     :root {
@@ -17,211 +21,308 @@
 
 /* Base Styles */
 
-    body {
-        overscroll-behavior: none;
-        margin: 0;
-    padding: 0;
+body {
+    overscroll-behavior: none;
     width: 100%;
-        overflow-x: hidden;
-        height: auto;
-        background-color: var(--bg-dark);
-        color: var(--text-white);
-        font-family: var(--font-main);
-        -webkit-font-smoothing: antialiased;
-    }
+    overflow-x: hidden;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    -webkit-font-smoothing: antialiased;
+}
 
-    .container {
-        width: 100%;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+.container {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 0 38px; /* Бұл шеткі орындарды сақтайды */
+}
 
 /* ==========================================================================
     Header & Navigation
    ========================================================================== */
 
 .header {
-    width: 100%;
-    height: 145px;
-    display: flex;
-    align-items: center;
     position: fixed;
+    padding-top:  28px;
     top: 0;
     left: 0;
+    width: 100%;
     z-index: 1000;
+
+    /* БАСТАПҚЫ КҮЙІ: Мөлдір фон */
     background: transparent;
-    transition: all 0.4s ease;
+    backdrop-filter: blur(0px); /* Басында blur болмайды */
+
+    /* ПАЙДА БОЛУ ЖЫЛДАМДЫҒЫ: 0.5 секунд (баяу әрі жұмсақ) */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-bottom: 34px;
+    height: auto;
 }
 
-
+/* СКРОЛЛ ЖАСАҒАНДА ПАЙДА БОЛАТЫН КҮЙІ */
 .header.scrolled {
-    height: 90px;
-    background: rgba(15, 15, 15, 0.47) !important;
-    backdrop-filter: blur( 5px);
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /* Қара фон және blur эффектісі */
+    background: rgba(15, 15, 15, 0.9) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Сәл көлеңке қоссаң, премиум көрінеді */
 }
 
+.nav-wrapper {
+    display: flex;
+    align-items: center; /* Элементтерді ортақ орталық сызыққа тізеді */
+    width: 100%;
+}
 
-    .nav-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
+.nav-wrapper a,
+.nav-wrapper span,
+.nav-wrapper button {
+    white-space: nowrap; /* Мәтінді ешқашан төмен түсірмейді */
+}
 
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 126.18px;
+    flex-shrink: 0;
 
-    .logo {
-        flex: 0 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: inherit;
-    }
+    /* Хедер ішіндегі ортаға дәл келтіру */
+    margin-top: 0;
+}
 
-    .logo img {
-    height: 81px;
-    width: auto;
-    transition: all 0.4s ease;
+.logo img {
+    /* Скриншоттағы өлшем: 68.33px x 81.8px */
+    width: 68.33px;
+    height: 81.8px;
+    display: block;
 }
 
 .header.scrolled .logo img {
     height: 60px;
 }
 
-    .menu {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        gap:   55px;
-    }
-
-    .menu__link {
-        text-decoration: none;
-        color: var(--text-white);
-        font-size: 17px;
-        font-weight: 400;
-        transition: opacity 0.3s;
-    }
-
-    .menu__link:hover {
-        opacity: 0.6;
-    }
-
-    .menu__item:hover .menu__link {
-    color: #A0A0A0;
-    opacity: 1;
-}
-
-    .actions {
-        flex: 0 0 auto;
-        display: flex;
-        gap: 25px;
-    }
-
-    .phone {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none;
-        color: var(--text-white);
-        font-size: 17px;
-    }
-    .phone img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .btn-quote {
-        background-color: var(--primary-red);
-        color: #FFFFFF;
-        text-decoration: none;
-        height: 38px;
-        padding: 0 54px;
-        border-radius: 60px;
-        display: flex;
-        align-items: center;
-        font-weight: 500;
-        font-size: 17px;
-        transition: transform 0.2s, background 0.3s;
-    }
-    .btn-quote:hover {
-        background-color: #A51B1B;
-        transform: translateY(-1px);
-    }
-
-    .search-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255, 255, 255, 0.29);
-    background: transparent;
+/* 1. Меню контейнері */
+.menu {
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-left: -15px;
-}
-
-.menu__item {
-    position: relative;
-    padding-bottom: 20px;
-    margin-bottom: -20px;
-}
-
-.dropdown {
-    position: absolute;
-    width: 265.4px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    top: 86.4px;
-    left: -20px;
-    padding: 10px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1001;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
-}
-
-.dropdown ul {
+    /* Пункттер арасы нақты: 47px */
+    gap: 47px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.dropdown li a {
-    display: block;
-    padding: 3px 10px;
-
-    color: #151515;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 17px;
+/* 2. Меню сілтемелерінің шрифті */
+.menu__link {
     text-decoration: none;
-    line-height: 1.2;
-    transition: background 0.2s;
-    border-radius: 5px;
+    color: var(--text-white);
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    font-weight: 400; /* Regular */
+    line-height: 100%; /* leading-trim қасиеті браузерде line-height 100% арқылы беріледі */
+    letter-spacing: 0%;
+
+    /* Бірінші әріпті ғана үлкен қылу (егер HTML-де бәрі кіші әріп болса) */
+    text-transform: capitalize;
+
+    transition: color 0.3s ease;
 }
 
-.dropdown li a:hover {
-    background: #f9f9f9;
-    color: var(--primary-red);
+.menu__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Фигма бойынша нақты биіктік */
+    padding-top: 35.7px;
+    padding-bottom: 34.1px;
 }
 
-.menu__item:hover .dropdown {
+.menu__link:hover {
+    opacity: 0.6;
+    }
+
+.menu__item:hover .menu__link {
+    color: #A0A0A0;
     opacity: 1;
-    visibility: visible;
-    top: 50px;
 }
 
+.actions {
+    display: flex;
+    align-items: center;
+    /* Соңғы меню (Contact Us) мен Телефон арасы: 82.81px */
+    margin-left: 82.81px;
+}
+
+/* Десктоп нұсқадағы телефон мен кнопканы біріктіретін блок */
+.desktop-only {
+    display: flex;
+    align-items: center;
+}
+
+.phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 17px;
+    margin-right: 37px; /* Кнопкаға дейінгі арақашықтық */
+    transition: opacity 0.3s ease;
+}
+
+.phone:hover {
+    opacity: 0.7;
+}
+
+.phone img {
+    /* Скриншоттағы телефон белгісінің орны */
+    width: 20px;
+    height: 20px;
+}
+
+.btn-quote {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 210.34px;
+    height: 38px;
+    background-color: #C01F1F;
+    color: #FFFFFF;
+    border-radius: 60px;
+    border: none;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+
+    /* КНОПКА МЕН ЛУПА АРАСЫ 10px БОЛУЫ ҮШІН: */
+    margin-right: 10px;
+
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 15px rgba(192, 31, 31, 0.2);
+}
+
+/* --- ХОВЕР ЭФФЕКТІСІ --- */
+.btn-quote:hover {
+    background-color: #D12525; /* Сәл ашық реңк береміз */
+    transform: translateY(-3px) scale(1.03); /* Жоғары көтеріліп, сәл үлкейеді */
+    box-shadow: 0 8px 25px rgba(192, 31, 31, 0.4); /* Көлеңкесі жұмсарып, күшейеді */
+}
+
+/* Батырманы басқандағы эффект (Click) */
+.btn-quote:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(192, 31, 31, 0.3);
+}
+
+/* ҚОСЫМША: Жылт ететін жарық (Flare effect) */
+.btn-quote::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.btn-quote:hover::after {
+    left: 100%; /* Тышқанды апарғанда жарық бір жылт етіп өтеді */
+}
+
+.search-btn {
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Фигмадағыдай сәл мөлдір шеңбер */
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    cursor: pointer;
+    margin-left: 10px; /* Кнопкадан кейінгі 10px бос орын */
+    transition: all 0.3s ease;
+}
+
+.search-btn svg {
+    width: 20px; /* Фигмадағыдай өлшемді кішірейтсек, ортаға жақсы түседі */
+    height: 20px;
+    stroke: #FFFFFF;
+    stroke-width: 2px;
+    fill: none;
+    display: block;
+}
+
+/* Премиум Ховер эффектісі */
+.search-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #FFFFFF;
+    transform: scale(1.1); /* Сәл үлкейту */
+}
+
+.search-btn:active {
+    transform: scale(0.9);
+}
+
+/* ==========================================================================
+    Services Dropdown (Figma Exact Specs)
+   ========================================================================== */
+
+/* 1. Сырқы контейнер */
+.dropdown {
+    position: absolute;
+    width: 265.41px;
+    height: auto;
+    background: #FFFFFF;
+    border-radius: 10px;
+
+    /* Services сөзінің астынан арақашықтық: 27.45px */
+    top: 60px;
+    left: -25px; /* Визуалды түрде ортаға келтіру үшін сәл жылжыту */
+
+    /* Скриншот бойынша ішкі отступтар (Padding) */
+    padding: 17.36px 25.7px 20.85px 25.7px;
+
+    display: block;
+    flex-direction: column;
+    justify-content: space-between; /* Пункттер арасын тең бөлу үшін */
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1001;
+
+    /* Көлеңке жоқ дедің, бірақ ақ блок қара фонда көрінуі үшін сәл "soft" эффект қосамыз */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. Тізім стильдері */
 .dropdown__list {
-    list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
+    height: 100%; /* Бұл тізімді биіктік бойынша (104px) бірқалыпты таратады */
+    gap: 0; /* Арасын тек justify-content реттейді */
+}
+
+.dropdown__list li {
+    line-height: 1; /* line-height: 100% */
 }
 
 .dropdown__list li a {
@@ -229,48 +330,376 @@
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 17px;
-    line-height: 100%;
     color: #151515;
-    transition: color 0.2s;
+    display: block;
+    width: 100%;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    /* Текст арасындағы қашықтықты реттеу (биіктік 104px болуы үшін) */
+    padding: 4px 0;
 }
 
+/* 3. Керемет Hover Эффект (Creative & Clean) */
 .dropdown__list li a:hover {
     color: var(--primary-red);
+    transform: translateX(5px); /* Оң жаққа сәл жылжу (динамика береді) */
 }
 
-@media (max-width: 1024px) {
+/* Пункттің алдына кішкентай қызыл сызықша шығу (Hover кезінде) */
+.dropdown__list li a::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-red);
+    vertical-align: middle;
+    margin-right: 0;
+    transition: all 0.3s ease;
+}
 
-    .menu__item .dropdown {
-        position: static !important;
-        display: none;
-        width: 100% !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        padding-left: 15px !important;
-        margin-top: 10px;
+.dropdown__list li a:hover::before {
+    width: 10px;
+    margin-right: 8px;
+}
+
+/* 4. Менюге апарғанда ашылуы */
+.menu__item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/*Services сөзі мен ақ блоктың арасын жабатын көрінбейтін көпір
+(тышқанды төмен түсіргенде мәзір жабылып қалмауы үшін) */
+.menu__item::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    display: none;
+}
+
+.menu__item:hover::after {
+    display: block;
+}
+
+/* 3. БУРГЕР БАЗАЛЫҚ КҮЙІ (Десктопта жасырулы) */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 2100; /* Мәзірдің үстінде көрінуі үшін */
+    position: relative;
+}
+
+.burger span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+/* Активті күйі (JS арқылы "active" класы қосылғанда X-ке айналу) */
+.burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* --- МОБИЛЬНАЯ АДАПТИВНОСТЬ --- */
+
+
+@media (max-width: 1100px) {
+    /* 1. Десктоп элементтерін жасыру */
+    .menu, .desktop-only {
+        display: none !important;
     }
 
-    .menu__item.dropdown-open .dropdown {
+    /* 2. Хедердің ішіндегі элементтерді шетке итеру */
+    .nav-wrapper {
+        justify-content: space-between;
+    }
+
+    .actions {
+        margin-left: 0;
+        gap: 20px;
+    }
+
+    /* 3. Бургер (позициясын нақтылау) */
+    .burger {
+        display: flex !important;
+        z-index: 10001 !important;
+        position: relative;
+    }
+
+    /* 4. Мобильді мәзірдің негізгі контейнері */
+    .mobile-menu {
         display: block !important;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh; /* Биіктік қатаң 100% */
+        background: #0F0F0F;
+        z-index: 10000 !important;
+        transition: right 0.6s cubic-bezier(0.8, 0, 0.1, 1);
+        overflow: hidden; /* Сыртқы скроллды өшіреміз */
     }
 
-    .dropdown__list li a {
-        color: #FFFFFF !important;
-        font-size: 16px;
-        padding: 8px 0;
+    .mobile-menu.active {
+        right: 0 !important;
     }
 
-    .menu__item .menu__link::after {
-        content: ' ▼';
-        font-size: 12px;
-        transition: 0.3s;
+    /* 2. Ішкі орын (Padding) - Көбірек бос орын = Премиум көрініс */
+    .mobile-menu__inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Қатаң 100% */
+        padding: 100px 32px 40px; /* Бос орындарды теңестіру */
     }
 
-    .menu__item.dropdown-open .menu__link::after {
-        transform: rotate(180deg);
-        display: inline-block;
+    /* 3. Навигация пункттері */
+    .mobile-nav {
+        list-style: none;
+        padding-bottom: 20px;
+        margin: 0;
+        flex: 1; /* Барлық бос орынды алады */
+        overflow-y: auto; /* Тек осы жер созылса скролл шығады */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 10px;
+        color: #FFFFFF;
+        font-family: 'Manrope', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+    }
+
+    /* 4. Аккордеон (Ішкі мәзір) */
+    .mobile-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        list-style: none;
+        padding-left: 0;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-item.open .mobile-dropdown {
+        max-height: 500px; /* Созылу шегі */
+        padding-bottom: 15px;
+    }
+
+    .mobile-dropdown li a {
+        display: block;
+        padding: 14px 20px;
+        color: #888888;
+        text-decoration: none;
+        font-size: 17px;
+        border-left: 1px solid var(--primary-red); /* Сәл акцент қостық */
+        margin-bottom: 5px;
+    }
+
+    /* 5. Индикатор */
+    .toggle-icon {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 200; /* Жіңішке әрі таза көрінуі үшін */
+    color: rgba(255, 255, 255, 0.4); /* Басында сәл мөлдір */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Жұмсақ айналу */
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+
+/* Мәзір ашылған кезде (open класы қосылғанда) */
+    .mobile-item.open .toggle-icon {
+    transform: rotate(45deg); /* Плюс белгісін "X" немесе қиғаш қылады */
+    color: var(--primary-red); /* Ашылғанда түсі өзгереді */
+}
+
+    /* 6. Футер - Экранның ең астында қатаң тұрады */
+    .mobile-footer {
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background: #0F0F0F; /* Астындағы пункттер көрінбеуі үшін */
+    }
+
+    .mobile-phone {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #FFFFFF;
+        font-size: 19px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    /* 7. Батырма - Заманауи минимализм */
+    /* 1. НЕГІЗГІ БАТЫРМА (Get a Quote) */
+.mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 55px;
+    background-color: #C01F1F;
+    color: #FFFFFF;
+    border-radius: 60px;
+    border: none;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(192, 31, 31, 0.2);
+    -webkit-tap-highlight-color: transparent; /* Мобилкадағы көк рамканы өшіру */
+}
+
+/* БАСҚАН КЕЗДЕГІ ЭФФЕКТ (Hover-дің орнына) */
+.mobile-btn:active {
+    background-color: #D12525;
+    transform: scale(0.96); /* Басқанда сәл кішірейіп, "серіппе" эффектісін береді */
+    box-shadow: 0 2px 8px rgba(192, 31, 31, 0.4);
+}
+
+/* 2. МӘЗІР ПУНКТТЕРІНЕ БАСУ ЭФФЕКТІСІ */
+.mobile-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    color: #FFFFFF;
+    font-size: 20px;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Сілтемені басқанда сәл мөлдір болып, оңға жылжиды */
+.mobile-link:active {
+    opacity: 0.6;
+    padding-left: 10px; /* Саусақ тигенін сезу үшін кішкене жылжу */
+}
+
+/* 3. ЖЫЛТ ЕТЕТІН ЖАРЫҚ (Батырманы ашқанда назар аударту үшін) */
+.mobile-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+}
+
+/* Мәзір ашылғанда батырма жылт етеді */
+.mobile-menu.active .mobile-btn::after {
+    animation: flash 1s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes flash {
+    100% { left: 100%; }
+}
+}
+
+@media (max-width: 1360px) and (min-width: 1101px) {
+    .container {
+        padding: 0 40px; /* Шеткі бос орындарды нықтап бекіту */
+    }
+
+    .nav-wrapper {
+        display: flex;
+        justify-content: b-between; /* Лого сол жақта, қалғаны оң жақта */
+        align-items: center;
+        width: 100%;
+    }
+
+    /* 1. Логотиптің орны өзгермейді */
+    .logo {
+        margin-right: 0;
+        flex-shrink: 0;
+    }
+
+    /* 2. МӘЗІРДІ ОРТАҒА КЕЛТІРУ */
+    .menu {
+        display: flex;
+        justify-content: center; /* Элементтерді өз ішінде ортаға жинайды */
+        flex: 1; /* Барлық бос орынды иемденіп, менюді ортаға итереді */
+        gap: 30px; /* Пункттер арасындағы тең қашықтық */
+        margin: 0 40px; /* Лого мен Actions-тан бірдей қашықтықта тұруы үшін */
+    }
+
+    .menu__link {
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    /* 3. ОҢ ЖАҚТАҒЫ БЛОК (Actions) */
+    .actions {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0; /* Бұл блок тарылмауы керек */
+        margin-left: 0;
+    }
+
+    .desktop-only {
+        display: flex;
+        align-items: center;
+    }
+
+    .phone {
+        margin-right: 20px;
+        font-size: 15px;
+    }
+
+    .btn-quote {
+        width: 180px;
+        height: 38px;
+        font-size: 15px;
+        padding: 0 10px;
+    }
+
+    .search-btn {
+        margin-left: 10px;
     }
 }
 
@@ -283,16 +712,9 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    transform: rotate(0deg);
-    opacity: 1;
-    padding-top: 80px;
-    padding-left: -40px;
-    padding-right: 100px;
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    padding-top: 82px; /* Шапканың биіктігіне тең */
 }
 
 .hero-video {
@@ -345,7 +767,15 @@
     max-width: 850px;
 }
 
-.hero .hero__title,
+.hero .hero__title {
+    font-family: 'Noto Sans', sans-serif !important;
+    font-size: 88px;
+    font-weight: 500;
+    line-height: 1.1; /* ОСЫНЫ ФИГМАДАН ТЕКСЕР */
+    color: #FFFFFF !important;
+    margin-bottom: 24px; /* ОСЫНЫ ФИГМАДАН ТЕКСЕР */
+    letter-spacing: -0.02em;
+}
 
 .hero .hero__title span {
     display: block;
@@ -364,11 +794,10 @@
 
 .hero .hero__text {
     font-size: 26px;
-    line-height: 1.5;
+    line-height: 1.4;
     color: #ffffff !important;
-    margin-bottom: 40px;
-    max-width: 900px;
-    font-weight: 500;
+    margin-bottom: 48px;
+    max-width: 800px;
 }
 
 .hero .btn-quote {
@@ -395,12 +824,12 @@
 /* --- FLOATING ICONS --- */
 .floating-icons {
     position: absolute;
-    bottom: 20px;
-    right: 30px;
+    bottom: 40px; /* ФИГМАДАН ТЕКСЕР */
+    right: 40px;  /* ФИГМАДАН ТЕКСЕР */
     display: flex;
     flex-direction: column;
-    gap: 13px;
-    z-index: 25 !important;
+    gap: 15px;
+    z-index: 25;
 }
 
 .floating-icons__item {
@@ -424,1994 +853,5 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-}
-
-/* --- МОБИЛЬНАЯ АДАПТИВНОСТЬ --- */
-
-    .burger {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    z-index: 1100;
-}
-
-.burger span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: var(--text-white);
-    transition: all 0.3s ease;
-}
-
-@media (max-width: 1100px) {
-
-    .hero {
-        background-attachment: scroll !important;
-    }
-
-    .nav-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-    }
-
-    .logo {
-        margin-top: 10px;
-    }
-
-    .actions {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .burger {
-        margin: 0;
-        display: flex;
-    }
-
-    .header {
-        height: 80px !important;
-        background: rgba(15, 15, 15, 0.95) !important;
-        backdrop-filter: blur(10px);
-    }
-
-
-    .menu__link, .phone, .btn-quote {
-        display: none !important;
-    }
-
-
-    .burger {
-        display: flex !important;
-        z-index: 2000;
-        margin-left: 10px;
-    }
-
-    .floating-icons {
-        flex-direction: row !important;
-        right: 0 !important;
-        left: 0 !important;
-        justify-content: center !important;
-        bottom: 10px !important;
-        width: 100% !important;
-        gap: 20px !important;
-        z-index: 30 !important;
-    }
-
-    .floating-icons__item {
-        width: 45px !important;
-        height: 45px !important;
-    }
-
-        .nav-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .logo {
-            margin-top: 25px;
-        }
-
-        .actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .header {
-        background: transparent !important;
-            backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-            border: none !important;
-            height: 100px !important;
-            box-shadow: none !important;
-    }
-
-        .menu__link, .phone, .btn-quote {
-            display: none !important;
-        }
-
-        .burger {
-            display: flex !important;
-            z-index: 2000;
-            margin-left: 10px;
-        }
-
-       .menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 85%;
-    height: 100vh;
-           background: rgba(0, 0, 0, 0.29);
-           backdrop-filter: blur(80px);
-    -webkit-backdrop-filter: blur(80px);
-           border-left: 1px solid rgba(255, 255, 255, 0.15);
-    display: flex !important;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 120px 35px 40px;
-    gap: 5px;
-    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1500;
-}
-
-        .menu.active {
-            right: 0 !important;
-        }
-
-        .menu__link {
-            display: flex !important;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 22px;
-            font-weight: 500;
-            color: #FFFFFF !important;
-            padding: 18px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .menu__item.active > .menu__link {
-            color: rgba(255, 255, 255, 0.5) !important;
-        }
-
-        .menu__item.active > .menu__link::after {
-            transform: rotate(45deg);
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .menu__item > .menu__link::after {
-            content: '+';
-            font-size: 24px;
-            color: var(--primary-red);
-            transition: transform 0.4s;
-        }
-
-        .menu__item.active > .menu__link::after {
-            transform: rotate(45deg);
-        }
-
-        .menu__item .dropdown {
-            display: none !important;
-            position: static !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            background: transparent !important;
-            box-shadow: none !important;
-            width: 100% !important;
-        }
-
-        .menu__item.active .dropdown {
-            display: block !important;
-            margin: 10px 0 20px 0;
-            background: rgba(255, 255, 255, 0.03) !important;
-            border-radius: 20px;
-            padding: 15px 25px !important;
-        }
-
-        .dropdown__list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            list-style: none;
-        }
-
-        .dropdown li a {
-            display: flex !important;
-            color: rgba(255, 255, 255, 0.5) !important;
-            font-size: 17px !important;
-            padding: 12px 0 !important;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .dropdown li a:hover {
-            color: #b82120 !important;
-            padding-left: 10px;
-        }
-
-        .burger.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-        }
-
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
-        }
-
-        .hero {
-        padding-left: 35px !important;
-        padding-right: 35px !important;
-        padding-top: 60px;
-        height: 100vh;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-attachment: scroll !important;
-    }
-
-       .hero .hero__content {
-        width: 100%;
-        max-width: 780px;
-        margin: 0 auto !important;
-    }
-
-    .hero .hero__title,
-    .hero .hero__title span {
-        transform: none !important;
-        font-size: 40px !important;
-        line-height: 1.2 !important;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    .hero .hero__text {
-        font-size: 16px !important;
-        line-height: 1.4 !important;
-        margin: 0 auto 40px !important;
-        max-width: 950px;
-    }
-
-    .hero .btn-quote {
-        display: flex !important;
-        margin: 0 auto !important;
-        width: auto !important;
-        max-width: 350px;
-        justify-content: center;
-        align-items: center;
-        height: 60px;
-        font-size: 20px;
-    }
-
-        .hero__divider {
-        bottom: -20px !important;
-            left: 1px !important;
-        right: 1px !important;
-        width: auto !important;
-            height: 70px !important;
-        background-image: url('/themes/demo/assets/images/Rectangle 1862.svg') !important;
-        background-repeat: no-repeat !important;
-        background-size: 100% 100% !important;
-        background-position: center bottom !important;
-
-        z-index: 10  !important;
-        pointer-events: none;
-    }
-    }
-
-    @media (max-width: 480px) {
-        .hero .hero__title,
-        .hero .hero__title span {
-            font-size: 34px !important;
-        }
-        .hero .hero__text {
-            font-size: 16px !important;
-        }
-        .hero .btn-quote {
-            max-width: 100% !important;
-        }
-        .hero__divider {
-        height: 45px !important;
-            bottom: -20px !important;
-        left: 1px !important;
-        right: 1px !important;
-            background-size: 100% 100% !important;
-        z-index: 10;
-    }
-        .floating-icons {
-        bottom: 55px !important;
-        gap: 15px !important;
-    }
-
-    .floating-icons__item {
-        width: 40px !important;
-        height: 40px !important;
-    }
-
-    }
-
-/* ==========================================================================
-    Why TI Moving?
-   ========================================================================== */
-
-.benefits {
-    background-color: #FFFFFF;
-    padding: 30px 0 100px 0;
-    color: #000000;
-}
-
-.benefits__header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px;
-}
-
-.benefits__title {
-    font-family: 'Manrope', sans-serif;
-    font-size: 42px;
-    font-weight: 500;
-    margin-bottom: 10px;
-    display: block;
-    transform: scaleY(0.9);
-    transform-origin: center;
-}
-
-.benefits__subtitle {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 25px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: rgba(76, 76, 76, 0.7);
-    max-width: 850px;
-    margin: 0 auto 40px;
-    display: block;
-    transform: scaleY(0.9);
-    transform-origin: center;
-}
-
-.benefits__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 410px);
-    gap: 30px;
-    justify-content: center;
-    padding-bottom: 40px;
-}
-
-.benefit-card {
-    display: flex;
-    flex-direction: column;
-    width: 410px;
-    opacity: 1;
-}
-
-.benefit-card:nth-child(1),
-.benefit-card:nth-child(3) {
-    transform: translateY(0);
-}
-
-.benefit-card:nth-child(2) {
-    transform: translateY(30px);
-}
-
-.benefit-card__image {
-    width: 410px;
-    height: 317px;
-    overflow: hidden;
-    border-radius: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.benefit-card__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: brightness(1);
-}
-
-.benefit-card:hover .benefit-card__image {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-
-.benefit-card:hover .benefit-card__image img {
-    transform: scale(1.07);
-    filter: brightness(1.05);
-}
-
-.benefit-card__name {
-    width: 242px;
-    min-height: 28px;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 27px;
-    line-height: 100%;
-    color: #151515;
-    letter-spacing: 0.02em;
-    margin-bottom: 10px;
-    display: block;
-    transform: scaleY(1);
-    transform-origin: center;
-}
-
-
-.benefit-card__text {
-    width: 410px;
-    min-height: 35px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 17px;
-    line-height: 120%;
-    color: #555555;
-    letter-spacing: 0%;
-    max-width: 100%;
-}
-
-.benefit-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
-.benefit-card__image {
-    margin-bottom: 29px;
-}
-
-/* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
-@media (max-width: 1300px) {
-    .benefits__grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 0 30px 60px;
-    }
-
-    .benefit-card,
-    .benefit-card__image,
-    .benefit-card__text {
-        width: 100%;
-    }
-
-    .benefit-card__image {
-        height: auto;
-        aspect-ratio: 410 / 317;
-    }
-}
-
-@media (max-width: 768px) {
-    .benefits {
-        padding: 30px 0 95px 0;
-    }
-
-    .benefits__header {
-        margin-bottom: 40px;
-        padding: 0 20px;
-    }
-
-    .benefits__title {
-        font-size: 28px;
-        line-height: 1.2;
-    }
-
-    .benefits__subtitle {
-        font-size: 16px;
-        line-height: 1.4;
-        margin-bottom: 30px;
-    }
-
-    .benefits__grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 0 20px;
-    }
-
-    .benefit-card:nth-child(2) {
-        transform: translateY(0);
-    }
-
-    .benefit-card__name {
-        width: 100%;
-        font-size: 22px;
-        margin-bottom: 8px;
-        text-align: left;
-    }
-
-    .benefit-card__text {
-        font-size: 15px;
-        line-height: 1.4;
-        text-align: left;
-    }
-
-    .benefit-card__image {
-        margin-bottom: 18px;
-        border-radius: 15px;
-    }
-}
-
-@media (max-width: 380px) {
-    .benefits__title {
-        font-size: 24px;
-    }
-
-    .benefit-card__name {
-        font-size: 20px;
-    }
-}
-
-/* ==========================================================================
-    Our Services
-   ========================================================================== */
-
-    .services-dark {
-    background: #151515;
-    width: 100%;
-    min-height: auto;
-    position: relative;
-    z-index: 10;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    margin-top: -50px;
-    padding: 100px 0;
-}
-
-.services-dark__title {
-    color: #FFFFFF;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-size: 44px;
-    text-align: center;
-    margin-bottom: 0px;
-    transform: scaleY(0.9);
-    transform-origin: center;
-}
-
-.services-slider {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    overflow-x: hidden;
-    overflow-y: clip;
-}
-
-.services-slider__track {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    padding: 60px 0 80px;
-    justify-content: center;
-    scrollbar-width: none;
-}
-
-.services-slider__track::-webkit-scrollbar {
-    display: none;
-}
-
-.service-dark-card {
-    flex: 0 0 400px;
-    height: 400px;
-    background: #201D1D;
-    border-radius: 15px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 20px 90px;
-    scroll-snap-align: center;
-    overflow: visible;
-}
-
-.service-dark-card__icon {
-    width: 350px;
-    height: 350px;
-    position: absolute;
-    top: -70px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    opacity: 1;
-    pointer-events: none;
-}
-
-.service-dark-card__icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-
-.service-dark-card__name {
-    position: relative;
-    z-index: 2;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-size: 27px;
-    color: #FFFFFF;
-    text-align: center;
-    margin-bottom: 12px;
-    transform: scaleY(0.92);
-}
-
-.service-dark-card__text {
-    position: relative;
-    z-index: 2;
-    width: 307px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 24px;
-    color: #B2B2B2;
-    text-align: center;
-    margin-bottom: 0;
-}
-.service-dark-card__btn {
-    width: 50px;
-    height: 50px;
-    background: #C01F1F;
-    border-radius: 50%;
-    position: absolute;
-    border: 10px solid #161616;
-    box-sizing: content-box;
-    bottom: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    cursor: pointer;
-    transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-.service-dark-card__btn:hover {
-    background: #D03535;
-    border-color: #2A2A2A;
-}
-    .service-dark-card__btn .service-arrow {
-    width: 15px;
-    height: 23px;
-    transform: rotate(-38.11deg) !important;
-    object-fit: contain;
-    display: block;
-}
-
-.services-dots {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: -25px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    background: #555555;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background: #FFFFFF;
-    transform: scale(1);
-}
-
-@media (max-width: 768px) {
-
-    .services-dark {
-    padding: 35px 0 45px;
-}
-
-    .services-slider__track {
-        display: flex;
-        gap: 20px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding: 40px 0 70px;
-        justify-content: flex-start;
-        scrollbar-width: none;
-    }
-
-    .services-slider__track::before,
-    .services-slider__track::after {
-        content: "";
-        flex: 0 0 10%;
-        min-width: 10%;
-    }
-
-    .service-dark-card {
-        flex: 0 0 75%;
-        height: 390px;
-        background: #201D1D;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 0 30px 70px;
-        scroll-snap-align: center;
-        position: relative;
-    }
-
-    .service-dark-card__icon {
-        width: 300px;
-        height: 300px;
-        top: -55px;
-    }
-
-    .service-dark-card__name {
-        font-size: 24px;
-        margin-bottom: 18px;
-        line-height: 1.2;
-    }
-
-    .service-dark-card__text {
-        font-size: 15px;
-        line-height: 1.5;
-        width: 100%;
-        margin-bottom: 0;
-    }
-
-    .service-dark-card__btn {
-        width: 48px;
-        height: 48px;
-        bottom: -30px;
-        border-width: 8px;
-    }
-
-    .services-dots {
-        gap: 15px;
-        margin-top: 5px;
-    }
-
-}
-/* ==========================================================================
-   REVIEWS SECTION
-   ========================================================================== */
-
-.reviews {
-    background: #151515;
-    padding: 0px 0 100px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.reviews__container {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.reviews__title {
-    color: #FFFFFF;
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-size: 44px;
-    text-align: center;
-    margin-bottom: 60px;
-    transform: scaleY(0.9);
-    transform-origin: center;
-}
-
-.reviews__grid {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-.review-card {
-    flex: 1;
-    min-width: 320px;
-    max-width: 410px;
-    background: #FFFFFF1A;
-    border-radius: 20px;
-    padding: 40px 30px;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: auto;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.review-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(108, 87, 87, 0.2);
-}
-
-.review-card--first {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.review-card__score {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-size: 62px;
-    line-height: 82px;
-    color: #FFFFFF;
-    margin-bottom: 5px;
-}
-
-.review-card__stars {
-    width: 135px;
-    height: 30px;
-    margin-bottom: 30px;
-}
-
-.review-card__stars img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.review-card__subtext {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 33px;
-    color: #C0C0C0;
-    margin-bottom: 40px;
-    flex-grow: 1;
-}
-
-.review-card__count {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 30px;
-    color: #FFFFFF;
-    margin-bottom: 25px;
-}
-
-.review-card__socials {
-    display: flex;
-    gap: 15px;
-}
-
-.review-social-icon {
-    width: 81px;
-    height: 81px;
-    border: 1px solid #585858;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.review-social-icon img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.review-card__user {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.review-card__avatar {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.review-card__name {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 30px;
-    color: #FFFFFF;
-}
-
-.review-card__desc {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 28px;
-    color: #B2B2B2;
-}
-
-@media (max-width: 768px) {
-    .reviews {
-        padding: 0px 0 100px;
-    }
-
-    .reviews__title {
-        font-size: 28px;
-        margin-bottom: 60px;
-        padding: 0 20px;
-    }
-
-    .reviews__grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 0 16px;
-    }
-
-    .review-card {
-        width: 100%;
-        max-width: 100%;
-        padding: 25px 20px;
-        border-radius: 16px;
-    }
-
-
-    .review-card__score {
-        font-size: 42px;
-        line-height: 1.1;
-        margin-bottom: 8px;
-    }
-
-    .review-card__stars {
-        width: 110px;
-        height: 24px;
-        margin-bottom: 20px;
-    }
-
-    .review-card__subtext {
-        font-size: 16px;
-        line-height: 1.4;
-        margin-bottom: 25px;
-    }
-
-    .review-card__count {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-
-    .review-social-icon {
-        width: 54px;
-        height: 54px;
-    }
-
-    .review-social-icon img {
-        width: 28px;
-    }
-
-    .review-card__user {
-        gap: 12px;
-        margin-bottom: 15px;
-    }
-
-    .review-card__avatar {
-        width: 44px;
-        height: 44px;
-    }
-
-    .review-card__name {
-        font-size: 20px;
-    }
-
-    .review-card__desc {
-        font-size: 15px;
-        line-height: 1.5;
-    }
-}
-
-/* ==========================================================================
-   ABOUT US SECTION
-   ========================================================================== */
-
-.about {
-    position: relative;
-    background: #FFFFFF;
-    margin-top: 50px;
-    padding: 60px 0 100px;
-    overflow: visible;
-    border: none;
-    outline: none;
-}
-
-.about__divider {
-    position: absolute;
-    top: -50px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 110px;
-    background-image: url('/themes/demo/assets/images/Rectangle 1862.svg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center bottom;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.about__container {
-    max-width: 1320px;
-    margin: 0 auto;
-    padding: 0 38px;
-}
-
-.about__content {
-    display: flex;
-    align-items: flex-start;
-    gap: 80px;
-}
-
-.about__image {
-    flex: 0 0 595px;
-    height: 430px;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-top: -40px;
-    position: relative;
-    z-index: 6;
-}
-
-.about__info {
-    max-width: 556px;
-}
-
-.about__title {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-size: 44px;
-    line-height: 100%;
-    color: #151515;
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-
-.about__text {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 25px;
-    color: #777777;
-    display: inline-block;
-    transform: scaleY(0.9);
-    transform-origin: top;
-}
-
-@media (max-width: 768px) {
-    .about {
-        position: relative;
-        background: #FFFFFF;
-        padding: 40px 0 10px;
-        margin-top: -50px;
-        border-top-left-radius: 40px;
-        border-top-right-radius: 40px;
-        border: none;
-        outline: none;
-        z-index: 10;
-    }
-
-    .about__divider {
-        display: none !important;
-    }
-
-    .about__container {
-        padding: 0 25px;
-    }
-
-    .about__content {
-        flex-direction: column;
-        gap: 35px;
-        align-items: center;
-    }
-
-    .about__image {
-        flex: 0 0 auto;
-        width: 100%;
-        max-width: 420px;
-        height: 260px;
-        margin-top: 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        border: 1px solid rgba(0,0,0,0.03);
-    }
-
-    .about__info {
-        max-width: 100%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about__title {
-        font-size: 30px;
-        margin-bottom: 40px;
-        position: relative;
-    }
-    .about__title::after {
-        content: '';
-        position: absolute;
-        bottom: -12px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 70px;
-        height: 2px;
-        background: #C01F1F;
-        border-radius: 2px;
-    }
-
-    .about__text {
-        font-size: 15px;
-        line-height: 22px;
-        transform: scaleY(0.97);
-        max-width: 500px;
-        opacity: 0.9;
-    }
-}
-
-/* ==========================================================================
-   GALLERY SECTION (FIXED CENTER VIEW)
-   ========================================================================== */
-
-.gallery {
-    background: #FFFFFF;
-    padding: 0px 0 100px;
-    overflow: hidden;
-}
-
-.gallery__container {
-    width: 100%;
-    max-width: none; /* Экранның максималды ені */
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.gallery__title {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 500;
-    font-size: 50px;
-    line-height: 100%;
-    color: #151515;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 70px;
-}
-
-.gallery__slider {
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-}
-
-.gallery__slider::-webkit-scrollbar {
-    display: none;
-}
-
-.gallery__track {
-    display: flex;
-    gap: 40px;
-    padding: 0;
-    width: max-content;
-}
-
-.gallery__item {
-    flex: 0 0 calc(33.333vw - 80px);
-    height: 515px;
-    border-radius: 15px;
-    overflow: hidden;
-    scroll-snap-align: center;
-}
-
-.gallery__item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* DOTS */
-.gallery__dots {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 60px;
-}
-
-.gallery__dot {
-    width: 13px;
-    height: 13px;
-    background: #ADADAD;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-.gallery__dot--active {
-    background: #FF0009;
-}
-
-/* MOBILE */
-@media (max-width: 1024px) {
-    .gallery__item {
-        flex: 0 0 calc(45vw);
-        height: 400px;
-    }
-    .gallery__title {
-        font-size: 40px;
-        margin-bottom: 50px;
-    }
-}
-
-@media (max-width: 768px) {
-    .gallery {
-        padding: 40px 0 60px;
-    }
-
-    .gallery__title {
-        font-size: 32px;
-        margin-bottom: 40px;
-        padding: 0 20px;
-    }
-
-    .gallery__track {
-        gap: 15px;
-        padding: 0 20px;
-    }
-
-    .gallery__item {
-        flex: 0 0 80vw;
-        height: 350px;
-        scroll-snap-align: center;
-    }
-
-    .gallery__dots {
-        gap: 15px;
-        margin-top: 30px;
-    }
-
-    .gallery__dot {
-        width: 10px;
-        height: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery__item {
-        flex: 0 0 85vw;
-        height: 300px;
-    }
-    .gallery__title {
-        font-size: 28px;
-    }
-}
-
-/* ==========================================================================
-   CONTACT SECTION
-   ========================================================================== */
-
-    .contact {
-    background: #FFFFFF;
-    padding: 0px 0 100px;
-}
-
-.contact__container {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 0px;
-}
-
-.contact__card {
-    background: linear-gradient(0deg, rgba(24, 24, 24, 0.65), rgba(24, 24, 24, 0.65)),
-                url('/themes/demo/assets/images/Rectangle 35.svg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-    padding: 70px 0;
-    min-height: 500px;
-    display: flex;
-    justify-content: center;
-}
-
-.contact__content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1300px;
-    gap:   100px;
-}
-
-/*(TITLE & FORM) */
-.contact__left {
-    flex: 0 0 750px;
-    padding-left: 0px;
-}
-
-.contact__title {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 58px;
-    font-weight: 500;
-    line-height: 1.3;
-    transform: scaleY(0.90);
-    letter-spacing: -0.02em;
-    text-edge: cap alphabetic;
-    leading-trim: both;
-    color: #FFFFFF;
-    margin-bottom: 30px;
-    max-width: 530px;
-}
-
-.contact__highlight {
-    font-weight: 900;
-    transform: scaleY(0.90);
-    -webkit-text-stroke: 1px #FFFFFF;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    letter-spacing: -0.04em;
-}
-
-.contact__highlight::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 12px;
-    background: url('/themes/demo/assets/images/vector-line.svg') no-repeat;
-    background-size: contain;
-    z-index: -1;
-}
-
-.form__grid {
-    margin-top: -10px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 13px;
-}
-
-.form__grid-row {
-    grid-column: span 3;
-    display: flex;
-    gap: 13px;
-    width: 100%;
-}
-
-
-.form__grid-row .form__input {
-    flex: 1 1 calc(50% - 6.5px);
-    grid-column: auto;
-}
-
-.form__input--half {
-    grid-column: auto;
-}
-
-.form__input {
-    height: 61px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: none;
-    border-radius: 9px;
-    padding: 0 20px;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.form__input::placeholder {
-    color: rgb(255, 255, 255);
-    font-size: 22px;
-    line-height: normal;
-    vertical-align: middle;
-}
-
-.form__input::-webkit-input-placeholder { line-height: 58px; }
-.form__input::-moz-placeholder { line-height: 58px; }
-.form__input:-ms-input-placeholder { line-height: 58px; }
-
-.form__input--half {
-    grid-column: span 1.5;
-}
-
-.contact__btn {
-    margin-top: 25px;
-    width: 235px;
-    height: 60px;
-    background: #C01F1F;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 300px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.contact__btn:hover {
-    background: #A01919;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(192, 31, 31, 0.3);
-}
-
-.contact__btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(192, 31, 31, 0.2);
-    background: #8E1616;
-}
-.contact__right {
-    flex: 0 0 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-right: 120px;
-    padding-top: 10px;
-    align-items: flex-start;
-}
-
-.contact__info-item {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact__icon-box {
-    width: 38px;
-    height: 39px;
-    border: 1px solid rgba(255, 255, 255, 1);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    transition: all 0.3s ease;
-}
-    .contact__icon-box img {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s ease;
-}
-
-
-.contact__icon-box:hover {
-    border-color: #ffffff; =
-    background: rgba(0, 0, 0, 0.09);
-}
-
-.contact__icon-box:hover img {
-    transform: scale(1.1);
-}
-
-.info__label {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 300;
-    font-size: 22px;
-    color: rgb(255, 255, 255);
-}
-
-.contact__info-text p {
-    color: #FFFFFF;
-    font-size: 25px;
-    line-height: 1.4;
-}
-
-.info__link {
-    color: #FFFFFF;
-    font-size: 25px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 300;
-    line-height: 120%;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: rgba(255, 255, 255, 0.7);
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-    transition: 0.3s ease;
-}
-
-.info__link .arrow {
-    display: inline-block;
-    transform: rotate(-62.2deg);
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 400;
-    text-decoration: none !important;
-}
-
-.info__link:hover {
-    opacity: 0.8;
-    text-decoration-color: rgba(255, 255, 255, 1);
-}
-
-@media (max-width: 1024px) {
-    .contact__content {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 30px !important;
-        padding: 0 20px;
-    }
-
-    .contact__left, .contact__right {
-        flex: none !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-right: 0 !important;
-    }
-
-    .contact__right {
-        padding-top: 25px !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Бөлу сызығы */
-    }
-}
-
-@media (max-width: 768px) {
-    .contact {
-        padding: 0 0 50px;
-    }
-
-    .contact__card {
-        background: linear-gradient(0deg, rgba(24, 24, 24, 0.61), rgba(24, 24, 24, 0.8)),
-                    url('/themes/demo/assets/images/Rectangle 35.svg');
-        background-size: cover;
-        background-position: center top !important;
-        padding: 30px 15px !important;
-        min-height: auto !important;
-    }
-
-
-    .contact__title {
-        font-size: 26px !important;
-        line-height: 1.2 !important;
-        margin-top: 10px !important;
-        margin-bottom: 40px !important;
-        max-width: 100% !important;
-        transform: none !important;
-    }
-
-    .form__grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 10px !important;
-        margin-top: 0 !important;
-    }
-
-    .form__grid-row {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 10px !important;
-        width: 100% !important;
-    }
-
-    .form__input {
-        width: 100% !important;
-        height: 50px !important;
-        font-size: 16px !important;
-        padding: 0 15px !important;
-        flex: none !important;
-    }
-
-    .form__input::placeholder {
-        font-size: 18px !important;
-    }
-
-    .contact__btn {
-        width: 100% !important;
-        height: 55px !important;
-        margin-top: 15px !important;
-        font-size: 18px !important;
-    }
-
-    .contact__right {
-        gap: 20px !important;
-    }
-
-    .contact__info-item {
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 12px !important;
-    }
-
-    .contact__icon-box {
-        width: 34px !important;
-        height: 34px !important;
-        flex-shrink: 0 !important;
-    }
-
-    .contact__icon-box img {
-        width: 20px !important;
-        height: 20px !important;
-    }
-
-    .contact__info-text {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .info__label {
-        font-size: 14px !important;
-        margin-bottom: 5px !important;
-    }
-
-    .contact__info-text p, .info__link {
-        font-size: 17px !important;
-        line-height: 1.3 !important;
-    }
-
-    .info__link {
-        margin-top: 4px !important;
-    }
-
-    .info__link .arrow {
-        font-size: 16px !important;
-    }
-}
-
-/* ==========================================================================
-   FOOTER
-========================================================================== */
-
-.footer {
-    background: #151515
-    width: 100%;
-    position: relative;
-    padding-top: 60px;
-    padding-bottom: 40px;
-    color: #FFFFFF;
-    z-index: 1;
-}
-
-.footer__divider-vector {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    position: absolute;
-    left: 0;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.vector-left {
-    width: 23% !important;
-    height: auto;
-    display: block;
-    opacity: 1;
-    position: relative;
-    top: -113px;
-}
-
-.vector-right {
-    width: 70% !important;
-    height: auto;
-    display: block;
-    transform: scaleX(-1);
-    position: relative;
-    top: -90px;
-    margin-left: -1%;
-}
-
-.footer__container {
-    max-width: 1366px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.footer__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 60px;
-}
-
-/* Titles */
-.footer__questions-title {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 100%;
-    margin-bottom: 23px;
-    display: inline-block;
-    transform: scaleY(0.9);
-    transform-origin: bottom;
-}
-
-.footer__questions-subtitle {
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: 300;
-    font-size: 19px;
-    line-height: 100%;
-    margin-bottom: 30px;
-}
-
-.footer__col-title {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 100%;
-    margin-bottom: 20px;
-}
-
-/* Lists & Links */
-.footer__list {
-    list-style: none;
-    padding: 0;
-}
-
-.footer__list li {
-    margin-bottom: 12px;
-}
-
-.footer__list a, .footer__contact-link, .footer__contact-text {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.footer__list a:hover, .footer__contact-link:hover {
-    color: #FFFFFF;
-}
-
-.footer__phone {
-    display: block;
-    font-size: 17px !important;
-    margin-top: 15px;
-}
-
-/* Social Icons */
-.footer__socials {
-    display: flex;
-    gap: 15px;
-}
-
-.footer__social-item {
-    width: 58px;
-    height: 55px;
-    border: 1px solid #838383;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-
-.footer__social-item:hover {
-    border-color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.footer__bottom {
-    margin-top: 30px;
-}
-
-.footer__line {
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 40px;
-}
-
-.footer__copyright {
-    font-family: 'Manrope', sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-
-.footer__btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    margin-top: 25px;
-    width: 200px;
-    height: 52px;
-    background: #C01F1F;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 300px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 500;
-    font-size: 23px;
-    white-space: nowrap;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-
-.footer__btn:hover {
-    background: #A01919;
-    color: #FFFFFF;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(192, 31, 31, 0.3);
-}
-
-.footer__btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(192, 31, 31, 0.2);
-    background: #8E1616;
-}
-
-.footer__contact-text {
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.8;
-    color: #DDDDDD;
-    margin-bottom: 15px;
-}
-
-.footer__zip-code {
-    display: inline-block;
-}
-
-.footer__contact-link {
-    display: block;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #DDDDDD;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-/* Mobile Adaptive */
-@media (max-width: 768px) {
-    .footer {
-        background: #101111 !important;
-        padding: 40px 0 20px 0;
-        text-align: center;
-    }
-
-    .footer__divider-vector {
-        display: none !important;
-    }
-
-    .footer__container {
-        padding: 0 20px;
-    }
-
-    .footer__top {
-        display: flex;
-        flex-direction: column;
-        gap: 35px;
-        padding-bottom: 30px;
-    }
-
-    .footer__col-questions {
-        margin-bottom: 10px;
-    }
-
-    .footer__questions-title {
-        font-size: 24px;
-        margin-bottom: 8px;
-        transform: none;
-    }
-
-    .footer__questions-subtitle {
-        font-size: 16px;
-        margin-bottom: 20px;
-        color: rgba(255, 255, 255, 0.5);
-    }
-
-    .footer__btn {
-        width: 100%;
-        max-width: 240px;
-        height: 50px;
-        font-size: 18px;
-    }
-
-    .footer__top > .footer__col:nth-child(2),
-    .footer__top > .footer__col:nth-child(3) {
-        display: inline-block;
-        width: 48%;
-        vertical-align: top;
-        text-align: left;
-    }
-
-    .footer__top {
-        display: block;
-    }
-
-    .footer__col-title {
-        font-size: 15px;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-        color: #f4f4f4;
-    }
-
-    .footer__list li {
-        margin-bottom: 10px;
-    }
-
-    .footer__list a {
-        font-size: 14px;
-    }
-
-    .footer__col-contacts {
-        width: 100%;
-        margin-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding-top: 30px;
-    }
-
-    .footer__contact-text {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .footer__phone {
-        font-size: 22px !important;
-        margin: 10px 0;
-    }
-
-    .footer__socials {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-    margin-top: 15px;
-}
-
-    .footer__social-item {
-    width: 55px;
-    height: 55px;
-    border: 1px solid #838383;
-    border-radius: 50%;
-        display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: 0.3s ease;
-}
-
-.footer__social-item img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-}
-
-    .footer__line {
-        margin-bottom: 20px;
-    }
-
-    .footer__copyright {
-        font-size: 10px;
-        opacity: 0.4;
-    }
 }
 

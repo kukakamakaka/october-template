@@ -39,14 +39,13 @@ class __TwigTemplate_41414e672c58a51d415289f652f11d6f4a138e618a498fb7011e1252e0e
         echo "<header class=\"header\">
     <div class=\"container\">
         <div class=\"nav-wrapper\">
-
             <a href=\"/\" class=\"logo\">
                 ";
-        // line 6
+        // line 5
         $context['__cms_content_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->contentFunction("header/logo.htm"        , $context['__cms_content_params']        );
         unset($context['__cms_content_params']);
-        // line 7
+        // line 6
         echo "            </a>
 
             <nav class=\"menu\">
@@ -62,7 +61,6 @@ class __TwigTemplate_41414e672c58a51d415289f652f11d6f4a138e618a498fb7011e1252e0e
                         </ul>
                     </div>
                 </div>
-
                 <a href=\"#about\" class=\"menu__link\">About Us</a>
                 <a href=\"#gallery\" class=\"menu__link\">Gallery</a>
                 <a href=\"#reviews\" class=\"menu__link\">Reviews</a>
@@ -70,37 +68,85 @@ class __TwigTemplate_41414e672c58a51d415289f652f11d6f4a138e618a498fb7011e1252e0e
             </nav>
 
             <div class=\"actions\">
-                ";
-        // line 30
+                <div class=\"desktop-only\">
+                    ";
+        // line 29
         $context['__cms_content_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->contentFunction("header/phone-action.htm"        , $context['__cms_content_params']        );
         unset($context['__cms_content_params']);
+        // line 30
+        echo "                    <a href=\"#contact\" class=\"btn-quote\">
+                        ";
         // line 31
-        echo "
-                <a href=\"#contact\" class=\"btn-quote\">
-                    ";
-        // line 33
         $context['__cms_content_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->contentFunction("header/btn-text.htm"        , $context['__cms_content_params']        );
         unset($context['__cms_content_params']);
-        // line 34
-        echo "                </a>
+        // line 32
+        echo "                    </a>
+                </div>
 
                 <button class=\"search-btn\">
-                    <svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">
+                    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\">
                         <circle cx=\"11\" cy=\"11\" r=\"8\"></circle>
                         <line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line>
                     </svg>
                 </button>
+
                 <div class=\"burger\" id=\"burger\">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
             </div>
-
         </div>
     </div>
+
+<div class=\"mobile-menu\" id=\"mobileMenu\">
+    <div class=\"mobile-menu__inner\">
+        <ul class=\"mobile-nav\">
+            <li class=\"mobile-item\">
+                <a href=\"/\" class=\"mobile-link\">Home</a>
+            </li>
+
+            <li class=\"mobile-item\">
+                <div class=\"mobile-link\">
+                    Services <span class=\"toggle-icon\">+</span>
+                </div>
+                <ul class=\"mobile-dropdown\">
+                    <li><a href=\"#services\">Local Moving</a></li>
+                    <li><a href=\"#services\">Long Distance Moving</a></li>
+                    <li><a href=\"#services\">Office / Commercial Moving</a></li>
+                    <li><a href=\"#services\">Packing Services</a></li>
+                    <li><a href=\"#services\">Storage Solutions</a></li>
+                </ul>
+            </li>
+
+            <li class=\"mobile-item\">
+                <a href=\"#about\" class=\"mobile-link\">About Us</a>
+            </li>
+            <li class=\"mobile-item\">
+                <a href=\"#gallery\" class=\"mobile-link\">Gallery</a>
+            </li>
+            <li class=\"mobile-item\">
+                <a href=\"#reviews\" class=\"mobile-link\">Reviews</a>
+            </li>
+            <li class=\"mobile-item\">
+                <a href=\"#contact\" class=\"mobile-link\">Contact Us</a>
+            </li>
+        </ul>
+
+        <div class=\"mobile-footer\">
+            <a href=\"tel:+77777777777\" class=\"mobile-phone\">
+                <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
+                    <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>
+                </svg>
+                + 7 (777) 777-77-77
+            </a>
+            <a href=\"#contact\" class=\"mobile-btn\">Get a Quote</a>
+        </div>
+    </div>
+</div>
+
 </header>";
     }
 
@@ -116,7 +162,7 @@ class __TwigTemplate_41414e672c58a51d415289f652f11d6f4a138e618a498fb7011e1252e0e
 
     public function getDebugInfo()
     {
-        return array (  87 => 34,  83 => 33,  79 => 31,  75 => 30,  50 => 7,  46 => 6,  39 => 1,);
+        return array (  85 => 32,  81 => 31,  78 => 30,  74 => 29,  49 => 6,  45 => 5,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -126,7 +172,7 @@ class __TwigTemplate_41414e672c58a51d415289f652f11d6f4a138e618a498fb7011e1252e0e
     
     public function checkSecurity()
     {
-        static $tags = array("content" => 6);
+        static $tags = array("content" => 5);
         static $filters = array();
         static $functions = array();
 
