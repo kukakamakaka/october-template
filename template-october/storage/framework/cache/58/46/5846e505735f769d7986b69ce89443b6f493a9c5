@@ -1,0 +1,168 @@
+1774256510a:1:{s:16:"site/scripts.htm";a:5:{s:8:"fileName";s:16:"site/scripts.htm";s:7:"content";s:3226:"    <script>
+   document.addEventListener('DOMContentLoaded', () => {
+    // 1. УПРАВЛЕНИЕ ШАПКОЙ
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // 2. МОБИЛЬНОЕ МЕНЮ
+const burger = document.getElementById('burger');
+const menu = document.querySelector('.menu');
+
+burger?.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+});
+
+// 2.1. SERVICES DROPDOWN (МОБ)
+const menuItems = document.querySelectorAll('.menu__item');
+
+menuItems.forEach(item => {
+    const link = item.querySelector('.menu__link');
+    const dropdown = item.querySelector('.dropdown');
+
+    if (link && dropdown) {
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                item.classList.toggle('dropdown-open');
+                if (item.classList.contains('dropdown-open')) {
+                    dropdown.style.display = 'block';
+                } else {
+                    dropdown.style.display = 'none';
+                }
+            }
+        });
+    }
+});
+
+    // 3. ГАЛЕРЕЯ СКРОЛЛ ЖӘНЕ НҮКТЕЛЕР (ОСЫ ЖЕР МАҢЫЗДЫ)
+    const gallerySlider = document.querySelector('.gallery__slider');
+    const galleryDots = document.querySelectorAll('.gallery__dot');
+    const galleryItems = document.querySelectorAll('.gallery__item');
+
+    if (gallerySlider && galleryDots.length > 0) {
+        // Функция: Нүктелерді жаңарту
+        const updateGalleryDots = () => {
+            const scrollLeft = gallerySlider.scrollLeft;
+            const itemWidth = galleryItems[0].offsetWidth + 40; // 40 - бұл gap
+            const activeIndex = Math.round(scrollLeft / itemWidth);
+            galleryDots.forEach((dot, index) => {
+                dot.classList.toggle('gallery__dot--active', index === activeIndex);
+            });
+        };
+
+        gallerySlider.addEventListener('scroll', updateGalleryDots);
+
+        if (galleryItems.length >= 3) {
+            const targetItem = galleryItems[2];
+            const scrollOffset = targetItem.offsetLeft - (gallerySlider.clientWidth / 2) + (targetItem.offsetWidth / 2);
+
+            gallerySlider.scrollTo({
+                left: scrollOffset,
+                behavior: 'auto'
+            });
+            setTimeout(updateGalleryDots, 100);
+        }
+    }
+
+    // 4. SERVICES SLIDER
+    const servicesTrack = document.querySelector('.services-slider__track');
+    const servicesDots = document.querySelectorAll('.dot');
+    if (servicesTrack) {
+        servicesTrack.addEventListener('scroll', () => {
+            const cardWidth = 414;
+            const index = Math.round(servicesTrack.scrollLeft / cardWidth);
+            servicesDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+    }
+});
+</script>
+";s:5:"mtime";i:1774244753;s:6:"markup";s:3220:"<script>
+   document.addEventListener('DOMContentLoaded', () => {
+    // 1. УПРАВЛЕНИЕ ШАПКОЙ
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // 2. МОБИЛЬНОЕ МЕНЮ
+const burger = document.getElementById('burger');
+const menu = document.querySelector('.menu');
+
+burger?.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+});
+
+// 2.1. SERVICES DROPDOWN (МОБ)
+const menuItems = document.querySelectorAll('.menu__item');
+
+menuItems.forEach(item => {
+    const link = item.querySelector('.menu__link');
+    const dropdown = item.querySelector('.dropdown');
+
+    if (link && dropdown) {
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                item.classList.toggle('dropdown-open');
+                if (item.classList.contains('dropdown-open')) {
+                    dropdown.style.display = 'block';
+                } else {
+                    dropdown.style.display = 'none';
+                }
+            }
+        });
+    }
+});
+
+    // 3. ГАЛЕРЕЯ СКРОЛЛ ЖӘНЕ НҮКТЕЛЕР (ОСЫ ЖЕР МАҢЫЗДЫ)
+    const gallerySlider = document.querySelector('.gallery__slider');
+    const galleryDots = document.querySelectorAll('.gallery__dot');
+    const galleryItems = document.querySelectorAll('.gallery__item');
+
+    if (gallerySlider && galleryDots.length > 0) {
+        // Функция: Нүктелерді жаңарту
+        const updateGalleryDots = () => {
+            const scrollLeft = gallerySlider.scrollLeft;
+            const itemWidth = galleryItems[0].offsetWidth + 40; // 40 - бұл gap
+            const activeIndex = Math.round(scrollLeft / itemWidth);
+            galleryDots.forEach((dot, index) => {
+                dot.classList.toggle('gallery__dot--active', index === activeIndex);
+            });
+        };
+
+        gallerySlider.addEventListener('scroll', updateGalleryDots);
+
+        if (galleryItems.length >= 3) {
+            const targetItem = galleryItems[2];
+            const scrollOffset = targetItem.offsetLeft - (gallerySlider.clientWidth / 2) + (targetItem.offsetWidth / 2);
+
+            gallerySlider.scrollTo({
+                left: scrollOffset,
+                behavior: 'auto'
+            });
+            setTimeout(updateGalleryDots, 100);
+        }
+    }
+
+    // 4. SERVICES SLIDER
+    const servicesTrack = document.querySelector('.services-slider__track');
+    const servicesDots = document.querySelectorAll('.dot');
+    if (servicesTrack) {
+        servicesTrack.addEventListener('scroll', () => {
+            const cardWidth = 414;
+            const index = Math.round(servicesTrack.scrollLeft / cardWidth);
+            servicesDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+    }
+});
+</script>";s:4:"code";N;}}

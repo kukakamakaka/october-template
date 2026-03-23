@@ -1,0 +1,20 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ this.page.title }}</title>
+    <link href="{{ 'assets/css/libs/style.css'|theme }}" rel="stylesheet">
+    </head>
+    <body>
+
+        {% partial 'site/header' %}
+
+        {% page %}
+
+        {% partial 'site/footer' %}
+
+
+    {% partial 'site/scripts' %}
+    </body>
+</html>

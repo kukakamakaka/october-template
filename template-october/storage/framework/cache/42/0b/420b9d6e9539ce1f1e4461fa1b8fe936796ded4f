@@ -1,0 +1,28 @@
+1774256510a:1:{s:20:"reviews/review-1.htm";a:6:{s:8:"fileName";s:20:"reviews/review-1.htm";s:7:"content";s:475:"<div class="review-card__user">
+    <img src="/themes/demo/assets/images/avatar.svg" alt="Michael R." class="review-card__avatar">
+    <span class="review-card__name">Michael R.</span>
+</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="stars">
+</div>
+<p class="review-card__desc">
+    Excellent experience with TI Moving. Communication was clear, the movers were professional, and the entire process went exactly as planned.
+</p>";s:5:"mtime";i:1774248468;s:6:"markup";s:475:"<div class="review-card__user">
+    <img src="/themes/demo/assets/images/avatar.svg" alt="Michael R." class="review-card__avatar">
+    <span class="review-card__name">Michael R.</span>
+</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="stars">
+</div>
+<p class="review-card__desc">
+    Excellent experience with TI Moving. Communication was clear, the movers were professional, and the entire process went exactly as planned.
+</p>";s:4:"code";N;s:12:"parsedMarkup";s:475:"<div class="review-card__user">
+    <img src="/themes/demo/assets/images/avatar.svg" alt="Michael R." class="review-card__avatar">
+    <span class="review-card__name">Michael R.</span>
+</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="stars">
+</div>
+<p class="review-card__desc">
+    Excellent experience with TI Moving. Communication was clear, the movers were professional, and the entire process went exactly as planned.
+</p>";}}

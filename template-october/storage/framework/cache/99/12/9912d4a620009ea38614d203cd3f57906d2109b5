@@ -1,0 +1,113 @@
+1774256510a:1:{s:15:"site/footer.htm";a:5:{s:8:"fileName";s:15:"site/footer.htm";s:7:"content";s:2404:"<footer class="footer">
+    <div class="footer__divider-vector">
+        <img src="{{ 'assets/images/VVVector.svg'|theme }}" alt="divider" class="vector-left">
+        <img src="{{ 'assets/images/VVVector.svg'|theme }}" alt="divider" class="vector-right">
+    </div>
+
+    <div class="container footer__container">
+        <div class="footer__top">
+            <div class="footer__col-questions">
+                <h2 class="footer__questions-title">{% content 'footer/questions-title.htm' %}</h2>
+                <p class="footer__questions-subtitle">{% content 'footer/questions-subtitle.htm' %}</p>
+                <a href="#contact" class="btn-quote footer__btn">
+                    {% content 'footer/button-text.htm' %}
+                </a>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col-title">Navigation</h3>
+                <ul class="footer__list">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col-title">Our Services</h3>
+                <ul class="footer__list">
+                    <li><a href="#services">Office / Commercial Moving</a></li>
+                    <li><a href="#services">Local Moving</a></li>
+                    <li><a href="#services">Long Distance Moving</a></li>
+                    <li><a href="#services">Packing Services</a></li>
+                    <li><a href="#services">Storage Solutions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col footer__col-contacts">
+                <h3 class="footer__col-title">Contact Us</h3>
+                <div class="footer__contact-text">
+                    {% content 'footer/address.htm' %}
+                </div>
+                <div class="footer__contact-links">
+                    {% content 'footer/contacts.htm' %}
+                </div>
+            </div>
+
+            <div class="footer__socials">
+                {% content 'footer/socials.htm' %}
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="footer__line"></div>
+            <p class="footer__copyright">{% content 'footer/copyright.htm' %}</p>
+        </div>
+    </div>
+</footer>";s:5:"mtime";i:1774249420;s:6:"markup";s:2404:"<footer class="footer">
+    <div class="footer__divider-vector">
+        <img src="{{ 'assets/images/VVVector.svg'|theme }}" alt="divider" class="vector-left">
+        <img src="{{ 'assets/images/VVVector.svg'|theme }}" alt="divider" class="vector-right">
+    </div>
+
+    <div class="container footer__container">
+        <div class="footer__top">
+            <div class="footer__col-questions">
+                <h2 class="footer__questions-title">{% content 'footer/questions-title.htm' %}</h2>
+                <p class="footer__questions-subtitle">{% content 'footer/questions-subtitle.htm' %}</p>
+                <a href="#contact" class="btn-quote footer__btn">
+                    {% content 'footer/button-text.htm' %}
+                </a>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col-title">Navigation</h3>
+                <ul class="footer__list">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h3 class="footer__col-title">Our Services</h3>
+                <ul class="footer__list">
+                    <li><a href="#services">Office / Commercial Moving</a></li>
+                    <li><a href="#services">Local Moving</a></li>
+                    <li><a href="#services">Long Distance Moving</a></li>
+                    <li><a href="#services">Packing Services</a></li>
+                    <li><a href="#services">Storage Solutions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col footer__col-contacts">
+                <h3 class="footer__col-title">Contact Us</h3>
+                <div class="footer__contact-text">
+                    {% content 'footer/address.htm' %}
+                </div>
+                <div class="footer__contact-links">
+                    {% content 'footer/contacts.htm' %}
+                </div>
+            </div>
+
+            <div class="footer__socials">
+                {% content 'footer/socials.htm' %}
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="footer__line"></div>
+            <p class="footer__copyright">{% content 'footer/copyright.htm' %}</p>
+        </div>
+    </div>
+</footer>";s:4:"code";N;}}

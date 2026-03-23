@@ -1,0 +1,66 @@
+1774245966a:1:{s:17:"sections/hero.htm";a:5:{s:8:"fileName";s:17:"sections/hero.htm";s:7:"content";s:1224:"<section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="{{ 'assets/images/1.mp4'|theme }}" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero__container container">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                {% content 'hero-title.htm' %}
+            </h1>
+            <p class="hero__text">
+                {% content 'hero-text.htm' %}
+            </p>
+            <a href="#contact" class="btn-quote">Get a Quote</a>
+        </div>
+    </div>
+
+    <div class="floating-icons">
+        <a href="#" target="_blank" class="floating-icons__item">
+            <img src="{{ 'assets/images/Group 4375.svg'|theme }}" alt="Scroll">
+        </a>
+        <a href="https://instagram.com/ti_moving" target="_blank" class="floating-icons__item">
+            <img src="{{ 'assets/images/Group 1597878298.svg'|theme }}" alt="Instagram">
+        </a>
+        <a href="https://wa.me/123456789" target="_blank" class="floating-icons__item">
+            <img src="{{ 'assets/images/Group 1597878299.svg'|theme }}" alt="WhatsApp">
+        </a>
+    </div>
+
+    <div class="hero__divider"></div>
+</section>
+";s:5:"mtime";i:1774245347;s:6:"markup";s:1223:"<section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="{{ 'assets/images/1.mp4'|theme }}" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero__container container">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                {% content 'hero-title.htm' %}
+            </h1>
+            <p class="hero__text">
+                {% content 'hero-text.htm' %}
+            </p>
+            <a href="#contact" class="btn-quote">Get a Quote</a>
+        </div>
+    </div>
+
+    <div class="floating-icons">
+        <a href="#" target="_blank" class="floating-icons__item">
+            <img src="{{ 'assets/images/Group 4375.svg'|theme }}" alt="Scroll">
+        </a>
+        <a href="https://instagram.com/ti_moving" target="_blank" class="floating-icons__item">
+            <img src="{{ 'assets/images/Group 1597878298.svg'|theme }}" alt="Instagram">
+        </a>
+        <a href="https://wa.me/123456789" target="_blank" class="floating-icons__item">
+            <img src="{{ 'assets/images/Group 1597878299.svg'|theme }}" alt="WhatsApp">
+        </a>
+    </div>
+
+    <div class="hero__divider"></div>
+</section>";s:4:"code";N;}}

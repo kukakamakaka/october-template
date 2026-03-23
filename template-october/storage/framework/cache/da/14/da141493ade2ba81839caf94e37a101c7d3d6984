@@ -1,0 +1,521 @@
+1774256510a:1:{s:8:"home.htm";a:10:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:9179:"title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[viewBag]
+==
+
+    <section class="hero">
+    {% content 'hero/video.htm' %}
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero__container container">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                {% content 'hero/title.htm' %}
+            </h1>
+            <p class="hero__text">
+                {% content 'hero/text.htm' %}
+            </p>
+            <a href="#contact" class="btn-quote">
+                {% content 'hero/button-text.htm' %}
+            </a>
+        </div>
+    </div>
+
+    <div class="floating-icons">
+        {% content 'hero/icon-scroll.htm' %}
+
+        {% content 'hero/icon-instagram.htm' %}
+
+        {% content 'hero/icon-whatsapp.htm' %}
+    </div>
+
+    <div class="hero__divider"></div>
+</section>
+
+    <section class="benefits">
+    <div class="container">
+        <div class="benefits__header">
+            <h2 class="benefits__title">{% content 'benefits/main-title.htm' %}</h2>
+            <p class="benefits__subtitle">{% content 'benefits/main-subtitle.htm' %}</p>
+        </div>
+
+        <div class="benefits__grid">
+            <div class="benefit-card">
+                {% content 'benefits/card-1.htm' %}
+            </div>
+
+            <div class="benefit-card">
+                {% content 'benefits/card-2.htm' %}
+            </div>
+
+            <div class="benefit-card">
+                {% content 'benefits/card-3.htm' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="services-dark" id="services">
+    <div class="container">
+        <h2 class="services-dark__title">{% content 'services/title.htm' %}</h2>
+
+        <div class="services-slider">
+            <div class="services-slider__track">
+
+                {# Әр карточканы жеке контент блогы ретінде шығарамыз #}
+                <div class="service-dark-card">
+                    {% content 'services/service-1.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    {% content 'services/service-2.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    {% content 'services/service-3.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    {% content 'services/service-4.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    {% content 'services/service-5.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="services-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="reviews" id="reviews">
+    <div class="reviews__container">
+        <h2 class="reviews__title">{% content 'reviews/title.htm' %}</h2>
+
+        <div class="reviews__grid">
+            <div class="review-card review-card--first">
+                {% content 'reviews/stats-card.htm' %}
+            </div>
+
+            <div class="review-card">
+                {% content 'reviews/review-1.htm' %}
+            </div>
+
+            <div class="review-card">
+                {% content 'reviews/review-2.htm' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="about" id="about">
+    <div class="about__divider"></div>
+
+    <div class="container about__container">
+        <div class="about__content">
+            <div class="about__image">
+                {% content 'about/image.htm' %}
+            </div>
+
+            <div class="about__info">
+                <h2 class="about__title">
+                    {% content 'about/title.htm' %}
+                </h2>
+                <div class="about__text">
+                    {% content 'about/text.htm' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="gallery" id="gallery">
+    <div class="container gallery__container">
+
+        <h2 class="gallery__title">
+            {% content 'gallery/title.htm' %}
+        </h2>
+
+        <div class="gallery__slider">
+            <div class="gallery__track">
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-1.htm' %}
+                </div>
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-2.htm' %}
+                </div>
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-3.htm' %}
+                </div>
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-4.htm' %}
+                </div>
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-5.htm' %}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="gallery__dots">
+            <span class="gallery__dot gallery__dot--active"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+        </div>
+
+    </div>
+</section>
+
+    <section class="contact" id="contact">
+    <div class="contact__container">
+        <div class="contact__card">
+            <div class="contact__content">
+                <div class="contact__left">
+                    <h2 class="contact__title">
+                        {% content 'contact/title.htm' %}
+                    </h2>
+
+                    <form class="contact__form">
+                        <div class="form__grid">
+                            <input type="text" placeholder="Your Name*" class="form__input">
+                            <input type="tel" placeholder="Phone*" class="form__input">
+                            <input type="email" placeholder="Email" class="form__input">
+
+                            <input type="text" placeholder="From Address*" class="form__input">
+                            <input type="text" placeholder="To Address*" class="form__input">
+                            <input type="date" class="form__input">
+
+                            <div class="form__grid-row form__grid-row--half-width">
+                                <input type="text" placeholder="Move Type" class="form__input form__input--half">
+                                <input type="text" placeholder="Volume" class="form__input form__input--half">
+                            </div>
+                        </div>
+                        <button type="submit" class="contact__btn">
+                            {% content 'contact/button-text.htm' %}
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact__right">
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="{{ 'assets/images/loc-icon.svg'|theme }}" alt="Location">
+                        </div>
+                        <div class="contact__info-text">
+                            {% content 'contact/address.htm' %}
+                        </div>
+                    </div>
+
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="{{ 'assets/images/phone-icon.svg'|theme }}" alt="Phone">
+                        </div>
+                        <div class="contact__info-text">
+                            {% content 'contact/phone.htm' %}
+                        </div>
+                    </div>
+
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="{{ 'assets/images/mail-icon.svg'|theme }}" alt="Email">
+                        </div>
+                        <div class="contact__info-text">
+                            {% content 'contact/email.htm' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+";s:5:"mtime";i:1774249900;s:6:"markup";s:9100:"<section class="hero">
+    {% content 'hero/video.htm' %}
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero__container container">
+        <div class="hero__content">
+            <h1 class="hero__title">
+                {% content 'hero/title.htm' %}
+            </h1>
+            <p class="hero__text">
+                {% content 'hero/text.htm' %}
+            </p>
+            <a href="#contact" class="btn-quote">
+                {% content 'hero/button-text.htm' %}
+            </a>
+        </div>
+    </div>
+
+    <div class="floating-icons">
+        {% content 'hero/icon-scroll.htm' %}
+
+        {% content 'hero/icon-instagram.htm' %}
+
+        {% content 'hero/icon-whatsapp.htm' %}
+    </div>
+
+    <div class="hero__divider"></div>
+</section>
+
+    <section class="benefits">
+    <div class="container">
+        <div class="benefits__header">
+            <h2 class="benefits__title">{% content 'benefits/main-title.htm' %}</h2>
+            <p class="benefits__subtitle">{% content 'benefits/main-subtitle.htm' %}</p>
+        </div>
+
+        <div class="benefits__grid">
+            <div class="benefit-card">
+                {% content 'benefits/card-1.htm' %}
+            </div>
+
+            <div class="benefit-card">
+                {% content 'benefits/card-2.htm' %}
+            </div>
+
+            <div class="benefit-card">
+                {% content 'benefits/card-3.htm' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="services-dark" id="services">
+    <div class="container">
+        <h2 class="services-dark__title">{% content 'services/title.htm' %}</h2>
+
+        <div class="services-slider">
+            <div class="services-slider__track">
+
+                {# Әр карточканы жеке контент блогы ретінде шығарамыз #}
+                <div class="service-dark-card">
+                    {% content 'services/service-1.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    {% content 'services/service-2.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    {% content 'services/service-3.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    {% content 'services/service-4.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    {% content 'services/service-5.htm' %}
+                    <div class="service-dark-card__btn">
+                        <img src="{{ 'assets/images/arrow.svg'|theme }}" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="services-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="reviews" id="reviews">
+    <div class="reviews__container">
+        <h2 class="reviews__title">{% content 'reviews/title.htm' %}</h2>
+
+        <div class="reviews__grid">
+            <div class="review-card review-card--first">
+                {% content 'reviews/stats-card.htm' %}
+            </div>
+
+            <div class="review-card">
+                {% content 'reviews/review-1.htm' %}
+            </div>
+
+            <div class="review-card">
+                {% content 'reviews/review-2.htm' %}
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="about" id="about">
+    <div class="about__divider"></div>
+
+    <div class="container about__container">
+        <div class="about__content">
+            <div class="about__image">
+                {% content 'about/image.htm' %}
+            </div>
+
+            <div class="about__info">
+                <h2 class="about__title">
+                    {% content 'about/title.htm' %}
+                </h2>
+                <div class="about__text">
+                    {% content 'about/text.htm' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="gallery" id="gallery">
+    <div class="container gallery__container">
+
+        <h2 class="gallery__title">
+            {% content 'gallery/title.htm' %}
+        </h2>
+
+        <div class="gallery__slider">
+            <div class="gallery__track">
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-1.htm' %}
+                </div>
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-2.htm' %}
+                </div>
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-3.htm' %}
+                </div>
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-4.htm' %}
+                </div>
+
+                <div class="gallery__item">
+                    {% content 'gallery/img-5.htm' %}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="gallery__dots">
+            <span class="gallery__dot gallery__dot--active"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+        </div>
+
+    </div>
+</section>
+
+    <section class="contact" id="contact">
+    <div class="contact__container">
+        <div class="contact__card">
+            <div class="contact__content">
+                <div class="contact__left">
+                    <h2 class="contact__title">
+                        {% content 'contact/title.htm' %}
+                    </h2>
+
+                    <form class="contact__form">
+                        <div class="form__grid">
+                            <input type="text" placeholder="Your Name*" class="form__input">
+                            <input type="tel" placeholder="Phone*" class="form__input">
+                            <input type="email" placeholder="Email" class="form__input">
+
+                            <input type="text" placeholder="From Address*" class="form__input">
+                            <input type="text" placeholder="To Address*" class="form__input">
+                            <input type="date" class="form__input">
+
+                            <div class="form__grid-row form__grid-row--half-width">
+                                <input type="text" placeholder="Move Type" class="form__input form__input--half">
+                                <input type="text" placeholder="Volume" class="form__input form__input--half">
+                            </div>
+                        </div>
+                        <button type="submit" class="contact__btn">
+                            {% content 'contact/button-text.htm' %}
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact__right">
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="{{ 'assets/images/loc-icon.svg'|theme }}" alt="Location">
+                        </div>
+                        <div class="contact__info-text">
+                            {% content 'contact/address.htm' %}
+                        </div>
+                    </div>
+
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="{{ 'assets/images/phone-icon.svg'|theme }}" alt="Phone">
+                        </div>
+                        <div class="contact__info-text">
+                            {% content 'contact/phone.htm' %}
+                        </div>
+                    </div>
+
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="{{ 'assets/images/mail-icon.svg'|theme }}" alt="Email">
+                        </div>
+                        <div class="contact__info-text">
+                            {% content 'contact/email.htm' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>";s:4:"code";N;s:5:"title";s:4:"Home";s:3:"url";s:1:"/";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:7:"viewBag";a:0:{}}}

@@ -1,0 +1,28 @@
+1774256510a:1:{s:20:"reviews/review-2.htm";a:6:{s:8:"fileName";s:20:"reviews/review-2.htm";s:7:"content";s:555:"<div class="review-card__user">
+    <img src="/themes/demo/assets/images/avatar.svg" alt="Michael R." class="review-card__avatar">
+    <span class="review-card__name">Michael R.</span>
+</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="5 stars">
+</div>
+<p class="review-card__desc">
+    We used TI Moving for a residential move and were very satisfied with the service. The team arrived on time, packed everything carefully, and handled our furniture with great care. The move was smooth and stress-free.
+</p>";s:5:"mtime";i:1774248501;s:6:"markup";s:555:"<div class="review-card__user">
+    <img src="/themes/demo/assets/images/avatar.svg" alt="Michael R." class="review-card__avatar">
+    <span class="review-card__name">Michael R.</span>
+</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="5 stars">
+</div>
+<p class="review-card__desc">
+    We used TI Moving for a residential move and were very satisfied with the service. The team arrived on time, packed everything carefully, and handled our furniture with great care. The move was smooth and stress-free.
+</p>";s:4:"code";N;s:12:"parsedMarkup";s:555:"<div class="review-card__user">
+    <img src="/themes/demo/assets/images/avatar.svg" alt="Michael R." class="review-card__avatar">
+    <span class="review-card__name">Michael R.</span>
+</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="5 stars">
+</div>
+<p class="review-card__desc">
+    We used TI Moving for a residential move and were very satisfied with the service. The team arrived on time, packed everything carefully, and handled our furniture with great care. The move was smooth and stress-free.
+</p>";}}

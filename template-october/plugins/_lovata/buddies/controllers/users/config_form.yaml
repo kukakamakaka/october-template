@@ -1,0 +1,17 @@
+name: '_lovata.buddies::lang.user.name'
+modelClass: Lovata\Buddies\Models\User
+form: $/_lovata/buddies/models/user/fields.yaml
+defaultRedirect: _lovata/buddies/users
+create:
+    form: $/_lovata/buddies/models/user/create_fields.yaml
+    title: 'backend::lang.form.create_title'
+    redirect: '_lovata/buddies/users/update/:id'
+    redirectClose: _lovata/buddies/users
+    flashSave: '_lovata.toolbox::lang.message.create_success'
+update:
+    title: 'backend::lang.form.update_title'
+    redirect: _lovata/buddies/users
+    redirectClose: _lovata/buddies/users
+    flashSave: '_lovata.toolbox::lang.message.update_success'
+    flashDelete: '_lovata.toolbox::lang.message.delete_success'
+preview: {  }

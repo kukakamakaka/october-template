@@ -1,0 +1,10 @@
+1774256510a:1:{s:23:"header/phone-action.htm";a:6:{s:8:"fileName";s:23:"header/phone-action.htm";s:7:"content";s:168:"<a href="tel:+77777777777" class="phone">
+    <img src="/themes/demo/assets/images/Group 1597878739.svg" alt="Phone Icon">
+    <span>+ 7 (777) 777–77–77</span>
+</a>";s:5:"mtime";i:1774249711;s:6:"markup";s:168:"<a href="tel:+77777777777" class="phone">
+    <img src="/themes/demo/assets/images/Group 1597878739.svg" alt="Phone Icon">
+    <span>+ 7 (777) 777–77–77</span>
+</a>";s:4:"code";N;s:12:"parsedMarkup";s:168:"<a href="tel:+77777777777" class="phone">
+    <img src="/themes/demo/assets/images/Group 1597878739.svg" alt="Phone Icon">
+    <span>+ 7 (777) 777–77–77</span>
+</a>";}}

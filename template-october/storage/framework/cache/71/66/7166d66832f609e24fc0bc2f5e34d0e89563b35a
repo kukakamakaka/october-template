@@ -1,0 +1,46 @@
+1774256510a:1:{s:22:"reviews/stats-card.htm";a:6:{s:8:"fileName";s:22:"reviews/stats-card.htm";s:7:"content";s:602:"<div class="review-card__score">4,9/5</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="5 stars">
+</div>
+<p class="review-card__subtext">
+    Learn more about our customer experience by visiting our Yelp and Google reviews.
+</p>
+<div class="review-card__count">1000+ reviews</div>
+<div class="review-card__socials">
+    <div class="review-social-icon">
+        <img src="/themes/demo/assets/images/yelp.svg" alt="Yelp">
+    </div>
+    <div class="review-social-icon">
+        <img src="/themes/demo/assets/images/google.svg" alt="Google">
+    </div>
+</div>";s:5:"mtime";i:1774248462;s:6:"markup";s:602:"<div class="review-card__score">4,9/5</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="5 stars">
+</div>
+<p class="review-card__subtext">
+    Learn more about our customer experience by visiting our Yelp and Google reviews.
+</p>
+<div class="review-card__count">1000+ reviews</div>
+<div class="review-card__socials">
+    <div class="review-social-icon">
+        <img src="/themes/demo/assets/images/yelp.svg" alt="Yelp">
+    </div>
+    <div class="review-social-icon">
+        <img src="/themes/demo/assets/images/google.svg" alt="Google">
+    </div>
+</div>";s:4:"code";N;s:12:"parsedMarkup";s:602:"<div class="review-card__score">4,9/5</div>
+<div class="review-card__stars">
+    <img src="/themes/demo/assets/images/stars.svg" alt="5 stars">
+</div>
+<p class="review-card__subtext">
+    Learn more about our customer experience by visiting our Yelp and Google reviews.
+</p>
+<div class="review-card__count">1000+ reviews</div>
+<div class="review-card__socials">
+    <div class="review-social-icon">
+        <img src="/themes/demo/assets/images/yelp.svg" alt="Yelp">
+    </div>
+    <div class="review-social-icon">
+        <img src="/themes/demo/assets/images/google.svg" alt="Google">
+    </div>
+</div>";}}
